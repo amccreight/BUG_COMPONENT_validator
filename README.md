@@ -2,7 +2,7 @@
 
 Validator for the BUG_COMPONENT field in the Firefox source code.
 
-Validation steps
+## Validation steps
 
 1. Download a recent components file from TreeHerder. Look for the "bugzilla" job,
    go to the Artifacts tab, download `components-normalized.json.gz` and `gunzip` it.
@@ -13,6 +13,13 @@ Validation steps
 
 4. Run `python3 validate.py components-normalized.json --products product.json` to validate.
 
-5. This will print out a list of invalid BUG_COMPONENTs, if any. You can look for these
-   using SearchFox. Use the path filter box to restrict the search to `moz.build`. You
-   might also need to check the case-sensitive box.
+5. This will print out a list of invalid BUG_COMPONENTs, if any.
+
+## Finding the invalid BUG_COMPONENTs
+
+You can look for invalid BUG_COMPONENTs using SearchFox. Use the path filter box to
+restrict the search to `moz.build`. You might also need to check the case-sensitive box.
+
+Note that while the script outputs the product and component names in double quotes, some
+places actually use single quotes, so you are probably better searching for the name
+without any quotes, assuming it is distinct enough in `moz.build` files.
