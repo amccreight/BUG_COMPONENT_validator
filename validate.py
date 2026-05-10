@@ -49,7 +49,7 @@ def print_bad_bug_components(type_name, bad_bug_components):
         return
 
     print(f"BUG_COMPONENT with an invalid {type_name}:")
-    for bc in bad_bug_components:
+    for bc in sorted(bad_bug_components):
         print(f'  ("{bc[0]}", "{bc[1]}")')
     print("")
 
